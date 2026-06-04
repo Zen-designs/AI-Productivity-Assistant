@@ -85,6 +85,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Automate emails, meetings, planning, research, and chat with AI." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "AI Workplace — Productivity Assistant" },
+      { name: "twitter:description", content: "Automate emails, meetings, planning, research, and chat with AI." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c73fb7f3-8e58-4f7e-b3c5-ec99974b83ee/id-preview-47361dcf--198a3543-85a2-414a-a05e-5e728e5f3b85.lovable.app-1780563488560.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c73fb7f3-8e58-4f7e-b3c5-ec99974b83ee/id-preview-47361dcf--198a3543-85a2-414a-a05e-5e728e5f3b85.lovable.app-1780563488560.png" },
     ],
     links: [
       {
