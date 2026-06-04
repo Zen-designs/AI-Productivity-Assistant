@@ -64,38 +64,37 @@ The goal of the application is to improve efficiency, reduce repetitive work, an
 
 ### Frontend
 
-* Next.js
-* React
-* TypeScript
-* Tailwind CSS
-* shadcn/ui
+* **TanStack Start** — Full-stack React framework with file-based routing and SSR/SSG support
+* **React 19** — UI library
+* **TypeScript** — Type-safe development
+* **Tailwind CSS v4** — Utility-first CSS framework
+* **shadcn/ui** — Accessible, customizable UI components
+* **Vite 7** — Build tool and development server
 
 ### Backend
 
-* Node.js
-* Express.js or Next.js API Routes
+* **TanStack Start Server Functions** (`createServerFn`) — Type-safe RPC for client-server communication
+* **Node.js** — Server runtime
 
 ### Database
 
-* PostgreSQL
+* **PostgreSQL** — Relational database via Lovable Cloud
 
 ### Authentication
 
-* Clerk Authentication
-* Auth.js (alternative)
+* **Supabase Auth** — Authentication and user management with email/password and social login support
 
 ### AI Integration
 
-* OpenAI API
+* **Lovable AI Gateway** — Unified API for accessing multiple AI models (Gemini, GPT, etc.)
 
 ### Storage
 
-* Supabase Storage
-* AWS S3 (optional)
+* **Supabase Storage** — File and asset storage
 
 ### Deployment
 
-* Vercel
+* **Lovable** — Managed deployment and hosting platform
 
 ---
 
@@ -106,7 +105,7 @@ The goal of the application is to improve efficiency, reduce repetitive work, an
 Ensure you have the following installed:
 
 * Node.js (v18 or later)
-* npm or yarn
+* Bun (recommended) or npm/yarn
 * Git
 
 ### 1. Clone the Repository
@@ -120,37 +119,36 @@ cd ai-workplace-productivity-assistant
 ### 2. Install Dependencies
 
 ```bash
-npm install
+bun install
 ```
 
 or
 
 ```bash
-yarn install
+npm install
 ```
 
 ### 3. Configure Environment Variables
 
-Create a `.env.local` file in the root directory.
+Create a `.env` file in the root directory.
 
 ```env
-OPENAI_API_KEY=your_openai_api_key
-
-DATABASE_URL=your_database_url
-
-NEXTAUTH_SECRET=your_secret_key
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
+VITE_SUPABASE_PROJECT_ID=your_supabase_project_id
+LOVABLE_API_KEY=your_lovable_ai_gateway_key
 ```
 
 ### 4. Run the Development Server
 
 ```bash
-npm run dev
+bun dev
 ```
 
 or
 
 ```bash
-yarn dev
+npm run dev
 ```
 
 Open:
@@ -162,8 +160,25 @@ http://localhost:3000
 ### 5. Build for Production
 
 ```bash
+bun run build
+```
+
+or
+
+```bash
 npm run build
-npm start
+```
+
+### 6. Preview Production Build
+
+```bash
+bun preview
+```
+
+or
+
+```bash
+npm run preview
 ```
 
 ---
@@ -172,19 +187,32 @@ npm start
 
 ```text
 src/
-├── app/
-├── components/
-├── features/
-│   ├── email-generator/
-│   ├── meeting-summarizer/
-│   ├── task-planner/
-│   ├── research-assistant/
-│   └── chatbot/
-├── lib/
-├── services/
-├── hooks/
-├── styles/
-└── types/
+├── components/           # Reusable UI components
+│   ├── ui/              # shadcn/ui components
+│   ├── AiDisclaimer.tsx
+│   ├── AiOutputCard.tsx
+│   ├── AppShell.tsx
+│   └── AppSidebar.tsx
+├── hooks/               # Custom React hooks
+├── integrations/        # Third-party integrations
+│   └── supabase/        # Supabase client, auth middleware, types
+├── lib/                 # Utility functions and server functions
+│   ├── ai.functions.ts  # AI server functions (generateAI, chatAI)
+│   ├── utils.ts
+│   └── ...
+├── routes/              # TanStack Start file-based routes
+│   ├── __root.tsx       # Root layout
+│   ├── index.tsx        # Dashboard home page
+│   ├── chat.tsx         # AI Chatbot
+│   ├── email.tsx        # Smart Email Generator
+│   ├── planner.tsx      # AI Task Planner
+│   ├── research.tsx     # AI Research Assistant
+│   ├── settings.tsx     # Settings page
+│   └── summarize.tsx    # Meeting Notes Summarizer
+├── router.tsx           # TanStack Router configuration
+├── server.ts            # Server entry point
+├── start.ts             # TanStack Start configuration
+└── styles.css           # Global styles and Tailwind CSS theme
 ```
 
 ---
@@ -203,4 +231,3 @@ Users should:
 Human oversight is recommended for all AI-generated results.
 
 ---
-
